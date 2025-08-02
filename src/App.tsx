@@ -3,15 +3,19 @@ export function App() {
     <div className="App">
       <h1>Notes App</h1>
       <button>Click Me</button>
-      <Notes />
+      <Notes name="Day 01 Bearmentor" />
+      <Notes name="Day 02 Bearmentor" />
+      <Notes name="Day 03 Bearmentor" />
+      <Notes name="Day 04 Bearmentor" />
+      <Notes name="Day 05 Bearmentor" />
     </div>
   );
 }
 
-function Notes() {
+export function Notes({ name }: { name: string }) {
   return (
     <div>
-      <h2>Summary Day 01 Bearmentor</h2>
+      <h2>{name}</h2>
     </div>
   );
 }
