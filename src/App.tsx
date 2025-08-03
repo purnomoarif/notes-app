@@ -44,9 +44,9 @@ const dataNotes = [
 
 export function App() {
   return (
-    <div className="App">
-      <h1>Notes App</h1>
-      <ul>
+    <div className="p-10 space-y-10">
+      <h1 className="text-3xl font-bold">Notes App</h1>
+      <ul className="space-y-2">
         {dataNotes.map((note) => {
           return (
             <li key={note.id}>
@@ -61,12 +61,12 @@ export function App() {
 
 export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
   return (
-    <div>
-      <h2>
+    <div className="p-4 border-2 bg-gray-200">
+      <h2 className="text-xl font-semibold">
         {name} {isDone && <span>✅</span>}
       </h2>
 
-      {!isDone && <h3>Not done yet 📝</h3>}
+      {!isDone && <h3 className="text-gray-600">Not done yet 📝</h3>}
     </div>
   )
 }
