@@ -44,24 +44,27 @@ const dataNotes = [
 
 export function App() {
   return (
-    <div className="p-10 space-y-10">
-      <h1 className="text-3xl font-bold">Notes App</h1>
-      <ul className="space-y-2">
-        {dataNotes.map((note) => {
-          return (
-            <li key={note.id}>
-              <Notes name={note.name} isDone={note.isDone} />
-            </li>
-          )
-        })}
-      </ul>
+    <div className="flex justify-center">
+      <section className="p-10 space-y-10 w-full max-w-xl">
+        <h1 className="text-3xl font-bold">Notes App</h1>
+
+        <ul className="space-y-2">
+          {dataNotes.map((note) => {
+            return (
+              <li key={note.id}>
+                <Notes name={note.name} isDone={note.isDone} />
+              </li>
+            )
+          })}
+        </ul>
+      </section>
     </div>
   )
 }
 
 export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
   return (
-    <div className="p-4 border-2 bg-gray-200">
+    <div className="p-4 border-2 rounded-lg bg-gray-200">
       <h2 className="text-xl font-semibold">
         {name} {isDone && <span>✅</span>}
       </h2>
