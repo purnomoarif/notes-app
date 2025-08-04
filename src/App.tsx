@@ -45,7 +45,7 @@ const dataNotes = [
 export function App() {
   return (
     <div className="flex justify-center">
-      <section className="p-10 space-y-10 w-full max-w-xl">
+      <section className="w-full max-w-xl space-y-10 p-10">
         <h1 className="text-3xl font-bold">Notes App</h1>
 
         <ul className="space-y-2">
@@ -64,7 +64,7 @@ export function App() {
 
 export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
   return (
-    <div className="p-4 border-2 rounded-lg bg-gray-200">
+    <div className="rounded-lg border-2 bg-gray-200 p-4">
       <h2 className="text-xl font-semibold">
         {name} {isDone && <span>✅</span>}
       </h2>
