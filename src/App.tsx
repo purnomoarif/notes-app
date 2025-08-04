@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+
 const dataNotes = [
   { id: 1, name: 'Day 01: Introduction', isDone: true },
   { id: 2, name: 'Day 02: UI/UX Design', isDone: true },
@@ -47,6 +49,10 @@ export function App() {
     <div className="flex justify-center">
       <section className="w-full max-w-xl space-y-10 p-10">
         <h1 className="text-3xl font-bold">Notes App</h1>
+
+        <Button className="rounded-lg bg-blue-500 px-4 py-2 text-white">
+          Add Note
+        </Button>
 
         <ul className="space-y-2">
           {dataNotes.map((note) => {
