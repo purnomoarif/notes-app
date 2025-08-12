@@ -47,7 +47,7 @@ const dataNotes = [
 export function App() {
   return (
     <div className="flex justify-center">
-      <section className="w-full max-w-xl space-y-10 p-10">
+      <section className="w-full max-w-xl space-y-10 bg-gray-300 p-10">
         <h1 className="text-3xl font-bold">Notes App</h1>
 
         <Button>Add Note</Button>
