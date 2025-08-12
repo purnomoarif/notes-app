@@ -34,14 +34,12 @@ export function App() {
             {notes.map((note) => {
               return (
                 <li key={note.id}>
-                  <Notes name={note.name} isDone={note.isDone} />
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => removeNote(note.id)}
-                  >
-                    Remove
-                  </Button>
+                  <Notes
+                    id={note.id}
+                    name={note.name}
+                    isDone={note.isDone}
+                    removeNote={removeNote}
+                  />
                 </li>
               )
             })}
@@ -52,7 +50,14 @@ export function App() {
   )
 }
 
-export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
+interface NotesProps {
+  id: number
+  name: string
+  isDone: boolean
+  removeNote: (id: number) => void
+}
+
+export function Notes({ id, name, isDone, removeNote }: NotesProps) {
   return (
     <div className="flex justify-between rounded-lg border-2 bg-gray-200 p-4">
       <div>
@@ -64,7 +69,11 @@ export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
       </div>
 
       <div className="flex gap-2">
-        <Button variant="destructive" size="icon-sm">
+        <Button
+          variant="destructive"
+          size="icon-sm"
+          onClick={() => removeNote(id)}
+        >
           <Trash />
         </Button>
       </div>
