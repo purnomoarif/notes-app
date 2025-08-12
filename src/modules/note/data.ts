@@ -1,4 +1,11 @@
-export const dataNotes = [
+export type DataNote = {
+  id: number
+  name: string
+  isDone: boolean
+  description?: string
+}
+
+export const dataNotes: DataNote[] = [
   { id: 1, name: 'Day 01: Introduction', isDone: true },
   { id: 2, name: 'Day 02: UI/UX Design', isDone: true },
   { id: 3, name: 'Day 03: Code Editor', isDone: true },
@@ -39,5 +46,10 @@ export const dataNotes = [
     isDone: true,
   },
   { id: 19, name: 'Day 19: React Styling, React UI Components', isDone: true },
-  { id: 20, name: 'Day 20: React Hooks, React State', isDone: false },
+  {
+    id: 20,
+    name: 'Day 20: React Hooks, React State',
+    isDone: false,
+    description: 'Learn about React Hooks and State management',
+  },
 ]

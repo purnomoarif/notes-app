@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Trash } from 'lucide-react'
-import { AddButton } from '@/components/shared/add-button'
-import { CounterButton } from '@/components/shared/counter-button'
+
 import { dataNotes } from '@/modules/note/data'
 import { useState } from 'react'
 
@@ -29,8 +28,6 @@ export function App() {
         <h1 className="text-3xl font-bold">Notes App</h1>
 
         <Button onClick={addNote}>Add Note</Button>
-        <CounterButton />
-        <AddButton />
 
         <section>
           <ul className="space-y-2">
