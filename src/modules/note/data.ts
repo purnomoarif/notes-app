@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button'
-
-const dataNotes = [
+export const dataNotes = [
   { id: 1, name: 'Day 01: Introduction', isDone: true },
   { id: 2, name: 'Day 02: UI/UX Design', isDone: true },
   { id: 3, name: 'Day 03: Code Editor', isDone: true },
@@ -43,48 +41,3 @@ const dataNotes = [
   { id: 19, name: 'Day 19: React Styling, React UI Components', isDone: true },
   { id: 20, name: 'Day 20: React Hooks, React State', isDone: false },
 ]
-
-export function App() {
-  return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl space-y-10 bg-gray-300 p-10">
-        <h1 className="text-3xl font-bold">Notes App</h1>
-        <section>
-          <Button>Add Note</Button>
-        </section>
-
-        <section>
-          <ul className="space-y-2">
-            {dataNotes.map((note) => {
-              return (
-                <li key={note.id}>
-                  <Notes name={note.name} isDone={note.isDone} />
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-      </div>
-    </div>
-  )
-}
-
-export function Notes({ name, isDone }: { name: string; isDone: boolean }) {
-  return (
-    <div className="flex justify-between rounded-lg border-2 bg-gray-200 p-4">
-      <div>
-        <h2 className="text-xl font-semibold">
-          {name} {isDone && <span>✅</span>}
-        </h2>
-
-        {!isDone && <h3 className="text-gray-600">Not done yet 📝</h3>}
-      </div>
-
-      <div className="flex gap-2">
-        <Button variant="destructive" size="icon-sm">
-          X
-        </Button>
-      </div>
-    </div>
-  )
-}
