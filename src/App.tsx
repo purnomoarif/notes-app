@@ -18,6 +18,11 @@ export function App() {
     setNotes([...notes, newNote])
   }
 
+  const removeNote = (id: number) => {
+    const updatedNotes = notes.filter((note) => note.id !== id)
+    setNotes(updatedNotes)
+  }
+
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-xl space-y-10 bg-gray-300 p-10">
@@ -33,6 +38,13 @@ export function App() {
               return (
                 <li key={note.id}>
                   <Notes name={note.name} isDone={note.isDone} />
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => removeNote(note.id)}
+                  >
+                    Remove
+                  </Button>
                 </li>
               )
             })}
