@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Trash } from 'lucide-react'
 import { AddButton } from '@/components/shared/add-button'
+import { CounterButton } from '@/components/shared/counter-button'
 
 const dataNotes = [
   { id: 1, name: 'Day 01: Introduction', isDone: true },
@@ -51,10 +52,10 @@ export function App() {
     <div className="flex justify-center">
       <div className="w-full max-w-xl space-y-10 bg-gray-300 p-10">
         <h1 className="text-3xl font-bold">Notes App</h1>
+
+        <CounterButton />
         <AddButton />
-        <section>
-          <Button>Add Note</Button>
-        </section>
+
         <section>
           <ul className="space-y-2">
             {dataNotes.map((note) => {
