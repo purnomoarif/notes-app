@@ -1,4 +1,14 @@
 import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 import { Trash } from 'lucide-react'
 
 import { dataNotes } from '@/modules/note/data'
@@ -7,19 +17,14 @@ import { useState } from 'react'
 export function App() {
   const [notes, setNotes] = useState(dataNotes)
 
-  const addNote = () => {
-    const newNote = {
-      id: notes.length + 1,
-      name: 'New Note',
-      isDone: true,
-    }
-
-    setNotes([...notes, newNote])
-  }
-
   const removeNote = (id: number) => {
     const updatedNotes = notes.filter((note) => note.id !== id)
     setNotes(updatedNotes)
+  }
+
+  const handleAddName = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log('Add name')
   }
 
   return (
@@ -27,7 +32,45 @@ export function App() {
       <div className="w-full max-w-xl space-y-10 bg-gray-300 p-10">
         <h1 className="text-3xl font-bold">Notes App</h1>
 
-        <Button onClick={addNote}>Add Note</Button>
+        <section className="mt-8 max-w-md">
+          <Card>
+            <CardHeader>
+              <CardTitle>Add Note</CardTitle>
+              <CardDescription>
+                Fill in the details below to add a new note.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form
+                onSubmit={handleAddName}
+                method="post"
+                className="flex flex-col gap-4"
+              >
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="note-name">Note Name</Label>
+                  <Input
+                    id="note-name"
+                    name="name"
+                    placeholder="Note name"
+                    required
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="note-description">Description</Label>
+                  <Textarea
+                    id="note-description"
+                    name="description"
+                    placeholder="Note description"
+                    required
+                  />
+                </div>
+                <Button type="submit" className="self-end">
+                  Add Note
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </section>
 
         <section>
           <ul className="space-y-2">
