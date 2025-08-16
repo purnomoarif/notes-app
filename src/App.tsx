@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Trash } from 'lucide-react'
 
-import { dataNotes } from '@/modules/note/data'
+import { dataNotes, type DataNote } from '@/modules/note/data'
 import { useState } from 'react'
 
 export function App() {
@@ -26,15 +26,20 @@ export function App() {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
-    const name = formData.get('name')
-    console.log('NAME', name)
-    const description = formData.get('description')
-    const newNote = {
+    const name = formData.get('name')?.toString()
+    const description = formData.get('description')?.toString()
+    if (!name) return
+    if (!description) return
+
+    const newNote: DataNote = {
+      id: notes[notes.length - 1].id + 1,
       name,
       description,
+      isDone: false,
     }
 
-    console.log(newNote)
+    const updatedNotes = [...notes, newNote]
+    setNotes(updatedNotes)
   }
 
   return (
