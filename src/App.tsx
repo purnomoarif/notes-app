@@ -22,7 +22,7 @@ export function App() {
     setNotes(updatedNotes)
   }
 
-  const handleAddName = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddNote = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
@@ -57,7 +57,7 @@ export function App() {
             </CardHeader>
             <CardContent>
               <form
-                onSubmit={handleAddName}
+                onSubmit={handleAddNote}
                 method="post"
                 className="flex flex-col gap-4"
               >
