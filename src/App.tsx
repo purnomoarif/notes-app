@@ -24,7 +24,17 @@ export function App() {
 
   const handleAddName = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('Add name')
+
+    const formData = new FormData(event.currentTarget)
+    const name = formData.get('name')
+    console.log('NAME', name)
+    const description = formData.get('description')
+    const newNote = {
+      name,
+      description,
+    }
+
+    console.log(newNote)
   }
 
   return (
