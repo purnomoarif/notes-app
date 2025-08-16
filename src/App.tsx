@@ -95,6 +95,7 @@ export function App() {
                   <Notes
                     id={note.id}
                     name={note.name}
+                    description={note.description ?? ''}
                     isDone={note.isDone}
                     onRemove={removeNote}
                   />
@@ -111,11 +112,12 @@ export function App() {
 interface NotesProps {
   id: number
   name: string
+  description: string
   isDone: boolean
   onRemove: (id: number) => void
 }
 
-export function Notes({ id, name, isDone, onRemove }: NotesProps) {
+export function Notes({ id, name, description, isDone, onRemove }: NotesProps) {
   return (
     <div className="flex justify-between rounded-lg border-2 bg-gray-200 p-4">
       <div>
@@ -123,7 +125,7 @@ export function Notes({ id, name, isDone, onRemove }: NotesProps) {
           {name} {isDone && <span>✅</span>}
         </h2>
 
-        {!isDone && <h3 className="text-gray-600">Not done yet 📝</h3>}
+        <p>{description}</p>
       </div>
 
       <div className="flex gap-2">
