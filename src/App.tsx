@@ -32,7 +32,7 @@ export function App() {
     if (!description) return
 
     const newNote: DataNote = {
-      id: notes[notes.length - 1].id + 1,
+      id: (notes.at(-1)?.id ?? 0) + 1,
       name,
       description,
       isDone: false,
