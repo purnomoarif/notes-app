@@ -1,8 +1,23 @@
+import { Button } from '@/components/ui/button'
+import { useEffect, useState } from 'react'
+
 export function Counter() {
+  const [count, setCount] = useState(() => {
+    const storedCount = localStorage.getItem('count')
+    return storedCount ? Number(storedCount) : 0
+  })
+
+  useEffect(() => {
+    localStorage.setItem('count', String(count))
+  }, [count])
+
   return (
-    <div className="m-10">
-      <h1 className="text-2xl font-bold">Counter</h1>
-      <p>This is the counter page of the Notes App.</p>
+    <div>
+      <p>Count: {count}</p>
+
+      <Button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Increment
+      </Button>
     </div>
   )
 }
