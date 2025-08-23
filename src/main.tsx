@@ -4,6 +4,7 @@ import { App } from './App.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { About } from './routes/about.tsx'
 import { Navbar } from './components/shared/navbar.tsx'
+import { Counter } from './routes/counter.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route index element={<App />} />
       <Route path="about" element={<About />} />
+      <Route path="counter" element={<Counter />} />
     </Routes>
   </BrowserRouter>,
 )
