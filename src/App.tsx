@@ -13,11 +13,12 @@ import { Trash } from 'lucide-react'
 
 import { dataNotes, type DataNote } from '@/modules/note/data'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
 export function App() {
   const [notes, setNotes] = useState(() => {
     const storedNotes = localStorage.getItem('notes')
-    return storedNotes ? JSON.parse(storedNotes) : dataNotes
+    return storedNotes ? (JSON.parse(storedNotes) as DataNote[]) : dataNotes
   })
 
   useEffect(() => {
@@ -136,6 +137,9 @@ export function Notes({ id, name, description, isDone, onRemove }: NotesProps) {
       </div>
 
       <div className="flex gap-2">
+        <Button asChild variant="outline" size="sm">
+          <Link to={`/notes/${id}`}>View</Link>
+        </Button>
         <Button
           variant="destructive"
           size="icon-sm"
