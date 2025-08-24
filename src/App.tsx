@@ -12,10 +12,17 @@ import { Label } from '@/components/ui/label'
 import { Trash } from 'lucide-react'
 
 import { dataNotes, type DataNote } from '@/modules/note/data'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function App() {
-  const [notes, setNotes] = useState(dataNotes)
+  const [notes, setNotes] = useState(() => {
+    const storedNotes = localStorage.getItem('notes')
+    return storedNotes ? JSON.parse(storedNotes) : dataNotes
+  })
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes))
+  }, [notes])
 
   const removeNote = (id: number) => {
     const updatedNotes = notes.filter((note) => note.id !== id)
