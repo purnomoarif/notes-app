@@ -3,7 +3,7 @@
 Simple task management to list the notes anything and built with React, TypeScript, shadcn/ui, and Tailwind CSS.
 
 - link : https://notes.purnomoarif.com/
-- Visit my website :
+- Visit my website : https://purnomoarif.com/
 
 ## 🚀 Features
 
