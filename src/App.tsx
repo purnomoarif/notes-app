@@ -44,6 +44,7 @@ export function App() {
       name,
       description,
       isDone: false,
+      createdDate: new Date(),
     }
 
     const updatedNotes = [...notes, newNote]
@@ -106,6 +107,7 @@ export function App() {
                     description={note.description ?? ''}
                     isDone={note.isDone}
                     onRemove={removeNote}
+                    createdDate={note.createdDate}
                   />
                 </li>
               )
@@ -123,9 +125,17 @@ interface NotesProps {
   description: string
   isDone: boolean
   onRemove: (id: number) => void
+  createdDate?: string | Date
 }
 
-export function Notes({ id, name, description, isDone, onRemove }: NotesProps) {
+export function Notes({
+  id,
+  name,
+  description,
+  isDone,
+  onRemove,
+  createdDate,
+}: NotesProps) {
   return (
     <div className="flex justify-between rounded-lg border-2 bg-gray-200 p-4">
       <div>
@@ -134,6 +144,16 @@ export function Notes({ id, name, description, isDone, onRemove }: NotesProps) {
         </h2>
 
         <p>{description}</p>
+        {createdDate && (
+          <p className="text-xs text-gray-500">
+            {new Date(createdDate).toLocaleDateString('en-US', {
+              day: 'numeric',
+              weekday: 'short',
+              month: 'long',
+              year: 'numeric',
+            })}
+          </p>
+        )}
       </div>
 
       <div className="flex gap-2">

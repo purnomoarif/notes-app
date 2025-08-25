@@ -9,7 +9,7 @@ export function NoteId() {
   const id = Number(params.id)
 
   const storedNotes = localStorage.getItem('notes')
-  const notes = JSON.parse(storedNotes) as DataNote[]
+  const notes = storedNotes ? (JSON.parse(storedNotes) as DataNote[]) : []
 
   const note = notes.find((note) => note.id === id)
   console.log(note)
