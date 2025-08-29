@@ -6,6 +6,7 @@ import { About } from './routes/about.tsx'
 import { Navbar } from './components/shared/navbar.tsx'
 import { Counter } from './routes/counter.tsx'
 import { NoteId } from './routes/note-id.tsx'
+import { NewNote } from './routes/new-note.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="about" element={<About />} />
       <Route path="counter" element={<Counter />} />
       <Route path="notes/:id" element={<NoteId />} />
+      <Route path="notes/new" element={<NewNote />} />
     </Routes>
   </BrowserRouter>,
 )
